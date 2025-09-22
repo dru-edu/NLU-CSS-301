@@ -2,7 +2,9 @@
   "name": "Java Development",
   "image": "mcr.microsoft.com/devcontainers/java:17",
   "features": {
-    "ghcr.io/devcontainers/features/git:1": {}
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/maven:1": {},
+    "ghcr.io/devcontainers/features/gradle:1": {}
   },
   "customizations": {
     "vscode": {
@@ -12,8 +14,13 @@
         "vscjava.vscode-gradle",
         "vscjava.vscode-maven",
         "redhat.vscode-xml"
-      ]
+      ],
+      "settings": {
+        "java.configuration.checkProjectSettingsExclusions": false
+      }
     }
   },
-  "postCreateCommand": "java --version"
+  "forwardPorts": [8080],
+  "remoteUser": "vscode",
+  "postCreateCommand": "java -version"
 }
